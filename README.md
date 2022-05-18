@@ -1,6 +1,6 @@
-# ttt
+# Tic Tac Toe
 
-A new Flutter project.
+A Flutter Tic Tac Toe game.
 
 ## Getting Started
 
