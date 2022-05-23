@@ -10,19 +10,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: TicTacToe(),
+      home: TicTacToeWidget(),
     );
   }
 }
 
-class TicTacToe extends StatefulWidget {
-  const TicTacToe({Key? key}) : super(key: key);
+class TicTacToeWidget extends StatefulWidget {
+  const TicTacToeWidget({Key? key}) : super(key: key);
 
   @override
-  State<TicTacToe> createState() => _TicTacToeState();
+  State<TicTacToeWidget> createState() => _TicTacToeWidgetState();
 }
 
-class _TicTacToeState extends State<TicTacToe> {
+class _TicTacToeWidgetState extends State<TicTacToeWidget> {
   final fields = List.generate(9, (index) => const Icon(null));
   int stepCounter = 0;
 
