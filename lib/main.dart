@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ttt/models/tic_tac_toe.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,22 +25,26 @@ class TicTacToeWidget extends StatefulWidget {
 
 class _TicTacToeWidgetState extends State<TicTacToeWidget> {
   final fields = List.generate(9, (index) => const Icon(null));
-  int stepCounter = 0;
+  
+  final marksIcons = {
+    Marks.cross: const Icon(
+      Icons.android,
+      size: 100,
+    ),
+    Marks.nought: const Icon(
+      Icons.apple,
+      size: 100,
+    ),
+    Marks.none: const Icon(null),
+  };
+
+  final ticTacToe = TicTacToe();
 
   _doStep(int fieldIndex) {
     setState(() {
-      if (stepCounter.isEven) {
-        fields[fieldIndex] = const Icon(
-          Icons.apple,
-          size: 100,
-        );
-      } else {
-        fields[fieldIndex] = const Icon(
-          Icons.android,
-          size: 100,
-        );
-      }
-      stepCounter++;
+      var mark = ticTacToe.doStep(9 ~/ fieldIndex, 9 % fieldIndex);
+      var icon = marksIcons[mark];
+      fields[fieldIndex] = icon!;
     });
   }
 
